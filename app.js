@@ -39,6 +39,8 @@ app.get('/api/v1/products/:id', async(req, res) =>{
     }
 })
 
+
+
 app.put('/api/v1/products/:id', async(req, res) =>{
     try {
         const {id} = req.params
