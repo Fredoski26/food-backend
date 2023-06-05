@@ -102,5 +102,8 @@
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.22"
+  },
+  "directories": {
+    "test": "test"
   }
 }
