@@ -23,7 +23,7 @@ app.post('/api/v1/products', async(req, res) =>{
 app.get('/api/v1/products', async(req, res) =>{
     try {
        const products = await Product.find({})
-       res.status(200).json(products)
+       res.status(200).json(res.json({products: products}))
     } catch (error) {
         res.status(500).json({message: error.message}) 
     }
