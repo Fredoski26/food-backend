@@ -26,7 +26,8 @@ app.get('/api/v1/products', async(req, res) =>{
        if(!products){
         return res.status(404).json({message:`cannot find product`})
        }
-       res.status(200).json({total_size: 6, type_id: 2, offset:0, products: products})
+       const newProduct = await Product.find({})
+       res.status(200).json({total_size: 6, type_id: 2, offset:0, products: newProduct})
     } catch (error) {
         res.status(500).json({message: error.message}) 
     }
