@@ -1,7 +1,10 @@
 const mongoose = require('mongoose')
-
+import { nanoid } from 'nanoid'
+model.id = nanoid()
 const productsSchema = mongoose.Schema(
     {
+        id:nanoid(10), require:[true, "Could not provide a unique id"],
+
         name: {
             type: String,
             required: [true, "Please enter product name"]
