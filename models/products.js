@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const productsSchema = mongoose.Schema(
     {
       _id: {type: Number,
-        required: [true, "Please enter unique id"]
+        required: [true, "Please provide a unique id"]
       },
         name: {
             type: String,
@@ -31,13 +31,12 @@ const productsSchema = mongoose.Schema(
         location: {
             type: String,
             required: [true, "Please enter product location"]
-        }
+        },
 
         // typeId: {
-        //     type: String,
+        //     type: Number,
         //     required: [true, "Please enter product type"]
-        // }
-        
+        // }  
     },
     {
         timestamps: true,
