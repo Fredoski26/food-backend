@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const  nanoid = require('nanoid')
-model.id = nanoid()
 const productsSchema = mongoose.Schema(
     {
         id:nanoid(10), require:[true, "Could not provide a unique id"],
