@@ -1,8 +1,10 @@
 const mongoose = require('mongoose')
-const  nanoid = require('nanoid')
+//const  nanoid = require('nanoid')
 const productsSchema = mongoose.Schema(
     {
-        id:nanoid(10), require:[true, "Could not provide a unique id"],
+        id:{type: Number, 
+            required: [true,"required id"]
+         },
 
         name: {
             type: String,
