@@ -2,9 +2,6 @@ const mongoose = require('mongoose')
 //const  nanoid = require('nanoid')
 const productsSchema = mongoose.Schema(
     {
-        id:{type: Number, 
-            required: [true,"required id"]
-         },
 
         name: {
             type: String,

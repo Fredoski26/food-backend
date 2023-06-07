@@ -55,33 +55,20 @@ app.put('/api/v1/products/:id', async(req, res) =>{
     }
 })
 
-// app.delete('/api/v1/products/:id', async(req, res) =>{
-//     try {
-//         const {id} = req.params
-//        const products = await Product.findByIdAndDelete({id});
-//        if(!products){
-//         return res.status(404).json({message: `no product to delete with id ${id}`})
-//        }
-//        const deleteProduct = await Product.findById({id})
-//        res.status(200).json(deleteProduct)
-//     } catch (error) {
-//         res.status(500).json({message: error.message}) 
-//     }
-// })
-
 app.delete('/api/v1/products/:id', async(req, res) =>{
     try {
-       const product = Product.find((product) => product.id === Number(req.params.id))
-       if(!product){
-        return res.status(404).json({message: `no product to delete with id ${req.params.id}`})
+        const {id} = req.params
+       const products = await Product.findByIdAndDelete({id});
+       if(!products){
+        return res.status(404).json({message: `no product to delete with id ${id}`})
        }
-       const deleteProduct =  Product.findOneAndDelete((product) => product.id !== Number(req.params.id))
-       res.status(200).json({success: true, products: deleteProduct})
+       const deleteProduct = await Product.findById({id})
+       res.status(200).json({success: true,products: deleteProduct})
     } catch (error) {
         res.status(500).json({message: error.message}) 
     }
-   
 })
+
 
 app.get('/api/v1/signups', async(req, res) => {
 
