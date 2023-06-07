@@ -13,7 +13,7 @@ const Product = require('./models/products')
 app.post('/api/v1/products', async(req, res) =>{
     try {
      const cProduct = await Product.create(req.body)
-     res.status(200).json(cProduct)
+     res.status(200).json({total_size: 6, type_id: 2, offset:0, products:cProduct})
     } catch (error) {
         console.log(error.message)
         res.status(500).json({message: error.message}) 
