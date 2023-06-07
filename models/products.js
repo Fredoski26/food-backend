@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 //const  nanoid = require('nanoid')
 const productsSchema = mongoose.Schema(
     {
+      _id: Number,
       
         name: {
             type: String,

@@ -67,7 +67,7 @@ app.delete('/api/v1/products/:id', async(req, res) =>{
         return res.status(404).json({message: `no product to delete with id ${id}`})
        }
        const deleteProduct = await Product.findById(id)
-      return res.status(200).json({success: true, msg: 'Product deleted successfully'})
+      return res.status(200).json({success: true, msg: 'Product deleted successfully',deleteProduct})
     } catch (error) {
         res.status(500).json({message: `no product to delete with id ${id}`})
     }
