@@ -36,8 +36,8 @@ app.get('/api/v1/products', async(req, res) =>{
 app.get('/api/v1/products/:id', async(req, res) =>{
     try {
         const  {id}  = req.params
-       const product = await Product.findById(id)
-       res.status(200).json(product)
+       const searchProduct = await Product.findById(id)
+       res.status(200).json({success: true ,searched: searchProduct})
     } catch (error) {
         res.status(500).json({message: error.message}) 
     }
@@ -52,8 +52,8 @@ app.put('/api/v1/products/:id', async(req, res) =>{
        if(!products){
           return res.status(404).json({message:`cannot find product with id ${id}`})
        }
-       const updateProduct = await Product.findById({id})
-       res.status(200).json(updateProduct)
+       const updateProduct = await Product.findById(id)
+       res.status(200).json({success:true, msg:"Product updated successfully", updated: updateProduct})
     } catch (error) {
         res.status(500).json({message: error.message}) 
     }
