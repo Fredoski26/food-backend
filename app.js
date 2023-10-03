@@ -1,6 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
+const connection = require('./db')
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }));
 
@@ -19,6 +21,10 @@ app.post('/api/v1/products', async(req, res) =>{
         res.status(500).json({message: error.message}) 
     }
 })
+
+app.post('/upload'), async(req, res) =>{
+    
+}
 
 app.get('/api/v1/products', async(req, res) =>{
     try {
@@ -122,6 +128,7 @@ app.post('/api/v1/signups', async(req, res) =>{
 
 const port = 3000
 //mongoose.set("strictQuery", false)
+connection();
 mongoose.
 connect('mongodb+srv://admin:admin100@foodapi100.rqjahq8.mongodb.net/FoodApis?retryWrites=true&w=majority')
 .then(() => {
