@@ -104,7 +104,6 @@ app.get('/api/v1/signups', async(req, res) => {
     }
 })
 
-
 app.post('/api/v1/signups', async(req, res) =>{
     try{
         const csignUp = await SignUp.create(req.body)
@@ -129,7 +128,7 @@ app.post('/api/v1/signups', async(req, res) =>{
 
 const port = 3000
 //mongoose.set("strictQuery", false)
-connection();
+//connection();
 mongoose.
 connect('mongodb+srv://admin:admin100@foodapi100.rqjahq8.mongodb.net/FoodApis?retryWrites=true&w=majority')
 .then(() => {
