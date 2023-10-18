@@ -104,6 +104,7 @@ app.get('/api/v1/signups', async(req, res) => {
     }
 })
 
+
 app.post('/api/v1/signups', async(req, res) =>{
     try{
         const csignUp = await SignUp.create(req.body)
